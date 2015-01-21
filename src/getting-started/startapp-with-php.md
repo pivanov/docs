@@ -24,7 +24,7 @@ noToc: true
 Наличните версии на PHP са `php-5.3`, `php-5.4`, `php-5.5`
 
 {% note info, Относно myphpapp! %}
-Ако се чудите дали това `myphpapp` е нещо вълшебно, отговорът е НЕ. Това е името на Вашето приложение :) 
+Ако се чудите дали това `myphpapp` е нещо вълшебно, отговорът е НЕ. Това е името на Вашето приложение :)
 Синтаксисът за създаване на PHP приложение е:
 
     $ app create <myphpapp> <php 5.5>
@@ -167,7 +167,7 @@ Run 'app show-app myphpapp' for more details about your app.
           <td>
             <code>deplist.txt</code>
           </td>
-          <td>Списък от PEAR пакети, които да бъдат инсталирани *1</td>
+          <td>Списък от PEAR пакети, които да бъдат инсталирани</td>
         </tr>
 
         <tr>
@@ -188,7 +188,7 @@ Run 'app show-app myphpapp' for more details about your app.
           <td>
             <code>.openshift/markers/</code>
           </td>
-          <td>място за <a href="#markers">`markers`</a></td>
+          <td>място за <a href="#markers">`markers`</td>
         </tr>
 
         <tr>
@@ -202,13 +202,35 @@ Run 'app show-app myphpapp' for more details about your app.
   </div>
 
 {% note warning, Важно! %}
-Startapp търси в директориите php и libs, когато сервира приложението. Файлът index.php (който се намира в директория php) ще поеме всички requests от root URL-а на приложението. За по-добра организация, създайте и други директории, ако се налага :).
+Startapp търси в директориите php и libs, когато сервира приложението. Файлът index.php (който се намира в директория php) ще поеме всички requests от root URL-а на приложението. Ако използвате някой от упоменатите по-долу специфични продукти Startapp проверява и изпълнява 'index.php' в следната йерархична последователност:
+
+    1. php/
+    2. public/
+    3. public_html/
+    4. web/
+    5. www/
+    6. ./
+
+За по-добра организация, създайте и други директории, ако се налага :).
 {% endnote %}
 
 <!-- <div class="well well-startapp well-sm" style="margin-top: 20px;"><h4>Разбра ли кой файл за какво се ползва?
   <a href=""><span class="label label-success">Да</span></a>
   <a href=""><span class="label label-danger">Не</span></a>
 </h4></div> -->
+
+{% endsection %}
+
+{% section id="make-code-changes" title="PHP include_path?" %}
+Следните директории на приложенията се добавят автоматично към PHP include_path и по този начин, когато правите заявки от рода на require(), include() и други файлови I/O функции:
+
+    - lib/
+    - libs/
+    - libraries/
+    - src/
+    - misc/
+    - vendor/
+    - vendors/
 
 {% endsection %}
 
@@ -440,7 +462,7 @@ $link->close();
 
     $ mysql -h 127.0.0.1 -P 3306 -u<username> -p<password>
 
-Ако сте забравили Вашите `username` и `password`, може да ги видите така:
+Ако сте забравили Вашите `username` и `password`, припомнете си ги така:
 
     $ app show myphpapp
 
@@ -613,7 +635,7 @@ pg_close($connection);
 
 Напишете паролата си и натиснете `ENTER`.
 
-Ако си забравили Вашите `username` и `password` може да ги видите така:
+Ако си забравили Вашите `username` и `password` припомнете си ги така:
 
     $ app show myphpapp
 
@@ -754,7 +776,7 @@ $database = $mongo->$db_name;
 
     $ mongo 127.0.0.1:27017/<database> --username <username> --password <password>
 
-Ако си забравили Вашите `username` и `password` може да ги видите така:
+Ако си забравили Вашите `username` и `password` припомнете си ги така:
 
     $ app show myphpapp
 
@@ -764,7 +786,7 @@ $database = $mongo->$db_name;
 {% section id="create-codeigniter-app" title="Инсталиране на Codeigniter" %}
 
 
-Благодарение на **Startapp Quickstarts** може да инсталираш Codeigniter само с една команда:
+Благодарение на **Startapp Quickstarts** може да инсталирате Codeigniter само с една команда:
 
     app create myciapp codeigniter
 
@@ -792,11 +814,11 @@ $database = $mongo->$db_name;
 
 За изпозлване на Composer на Startapp, трябва да направите следното:
 
-Влезте в директорията на приложението си:
+Влезте в директорията на приложението Ви:
 
     $ cd /myphpapp/
 
-Изпълниете следния код (copy/paste) и натисни `ENTER`:
+Изпълниете следния код (copy/paste) и натиснете `ENTER`:
 
 {% highlight sh %}
 cat > .openshift/action_hooks/deploy << "EOF"
