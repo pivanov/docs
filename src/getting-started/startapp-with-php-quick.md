@@ -10,24 +10,15 @@ keywords: "хостинг, php хостинг, python хостинг, ruby хо�
 description: ""
 noToc: true
 ---
-
+{% include customer-requirements.html %}
 {% section id="fast-create-php-app" title="Бързи инструкции" %}
-
-{%assign install_url="/getting-started/app-client-tools-install.html" %}
 {%assign php_full="/getting-started/startapp-with-php.html" %}
 
-За да работят примерите по-долу:
 
-1. Регистрирай се безплатно в [http://startapp.bg](#)
-2. Инсталирай Git за: [Windows]({{ install_url }}#install-git-windows) | [Mac OS]({{ install_url }}#install-git-macos) | [Linux]({{ install_url }}#install-git-linux)
-3. Инсталирай Startapp Client Tools за: [Windows]({{ install_url }}#install-app-windows) | [Mac OS]({{ install_url }}#install-app-macos) | [Linux]({{ install_url }}#install-app-linux)
 
----
-
-#### 1. Създаване на приложение
+#### 1. Създаване на PHP приложение
 
     $ app create myphpapp php-5.3 mysql-5.1
-
 
 #### 2. Промени в кода
 
@@ -37,16 +28,14 @@ noToc: true
 
     $ git push
 
-
-#### 4. Отваряне в браузъра
-
-За предпочитане да е **различен от IE** :)
+#### 4. Отваряне в браузър
 
     http://myphpapp-<mydomain>.sapp.io/
 
 
 **Да, толкова е лесно!**
 
+---
 <br />
 
 <div class="text-center">
