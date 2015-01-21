@@ -23,25 +23,21 @@ noToc: true
 
 Наличните версии на PHP са `php-5.3`, `php-5.4`, `php-5.5`
 
-{% note info, Относно myphpapp! %}
-Ако се чудите дали това `myphpapp` е нещо вълшебно, отговорът е НЕ. Това е името на Вашето приложение :)
-Синтаксисът за създаване на PHP приложение е:
+{% note info, Относно "myphpapp" %}
+Ако се чудите дали `myphpapp` е нещо вълшебно, отговорът е НЕ.
 
-    $ app create <myphpapp> <php 5.5>
-
-Навсякъде в примера, където използваме `myphpapp` имайте впредвид, че там стои името на Вашето приложение.
-
+Това е името на твоето приложение :)
 {%endnote%}
 
-След като напишете тази команда на екрана Ви ще се изпише следното:
+След като изпълниш тази команда на екрана ще се появи следното:
 
 {% highlight sh %}
-Using php-5.3 (PHP 5.3) for 'php'
+Using php-5.5 (PHP 5.5) for 'php'
 
 Application Options
 -------------------
 Domain:     demos
-Cartridges: php-5.3
+Cartridges: php-5.5
 Gear Size:  default
 Scaling:    no
 
@@ -61,15 +57,15 @@ RSA key fingerprint is e2:4c:39:1a:d1:d1:1c:cc:66:2a:bf:43:42:56:c4:26.
 Are you sure you want to continue connecting (yes/no)?
 {% endhighlight %}
 
-Последните няколко реда казват, че Вашето приложение е създадено и готово за клониране на Вашият компютър.
+Последните няколко реда показват, че приложението е създадено и готово за клониране на твоят компютър.
 
-Ако желаете да го клонирате напишите:
+Ако желаеш да клонираш приложението напиши:
 
     yes
 
-и натиснете `ENTER`.
+след това натисни `ENTER`.
 
-Ако сте направили това на екрана Ви ще се визуализират следните неща:
+Ако клонираш приложението ще видиш следната информация:
 
 {% highlight sh %}
 Warning: Permanently added 'myphpapp-demos.sapp.io' (RSA) to the list of known hosts.
@@ -89,25 +85,25 @@ Run 'app show-app myphpapp' for more details about your app.
 
 ### Отваряне в браузър
 
-Вашето приложение можете да отворите в браузър с адреса изписан след `URL:` в примера то е:
+Отвори в браузър адреса изписан след `URL:`
 
-    http://myphpapp-demos.sapp.io/
+    URL:        http://myphpapp-demos.sapp.io/
 
 ---
 
 ### SSH достъп
 
-Всички приложения в Startapp.bg идват с SSH достъп. За логване на сървъра през SSH, използвайте адреса, изписан след `SSH to:`. В примера той е:
+Всички приложения в Startapp.bg идват с SSH достъп.
 
-    ssh 52debd81bfbf5aa4ca000482@myphpapp-demos.sapp.io
+    SSH to:     52debd81bfbf5aa4ca000482@myphpapp-demos.sapp.io
 
 ---
 
 ### Git хранилище
 
-Всяко приложение в Startapp.bg се съхранява в отделно Git хранилище. Адресът на хранилището на Вашето приложение се вижда веднага след "Git remote:". В примера е:
+Всяко приложение в Startapp.bg се съхранява в Git хранилище.
 
-    ssh://52debd81bfbf5aa4ca000482@myphpapp-demos.sapp.io/~/git/myphpapp.git/
+    Git remote: ssh://52debd81bfbf5aa4ca000482@myphpapp-demos.sapp.io/~/git/myphpapp.git/
 
 <!-- <div class="well well-startapp well-sm" style="margin-top: 20px;"><h4>Разбра ли как да създадеш първото си PHP приложение?
   <a href=""><span class="label label-success">Да</span></a>
@@ -117,9 +113,9 @@ Run 'app show-app myphpapp' for more details about your app.
 {% endsection %}
 
 
-{% section id="file-structure" title="Файлова структура на PHP приложението" %}
+{% section id="file-structure" title="Файлова структура на PHP приложение" %}
 
-След създаване и клониране на Вашето PHP приложение ще видите следните файлове и директории:
+След създаване и клониране на приложението ще се появят следните файлове и директории:
 
 <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -202,7 +198,7 @@ Run 'app show-app myphpapp' for more details about your app.
   </div>
 
 {% note warning, Важно! %}
-Startapp търси в директориите php и libs, когато сервира приложението. Файлът index.php (който се намира в директория php) ще поеме всички requests от root URL-а на приложението. Ако използвате някой от упоменатите по-долу специфични продукти Startapp проверява и изпълнява 'index.php' в следната йерархична последователност:
+Startapp проверява и изпълнява 'index.php' в изброените директории в следната последователност
 
     1. php/
     2. public/
@@ -210,8 +206,6 @@ Startapp търси в директориите php и libs, когато сер
     4. web/
     5. www/
     6. ./
-
-За по-добра организация, създайте и други директории, ако се налага :).
 {% endnote %}
 
 <!-- <div class="well well-startapp well-sm" style="margin-top: 20px;"><h4>Разбра ли кой файл за какво се ползва?
@@ -222,7 +216,7 @@ Startapp търси в директориите php и libs, когато сер
 {% endsection %}
 
 {% section id="make-code-changes" title="PHP include_path?" %}
-Следните директории на приложенията се добавят автоматично към PHP include_path и по този начин, когато правите заявки от рода на require(), include() и други файлови I/O функции:
+Следните директории на приложението се добавят автоматично към `PHP include_path`.
 
     - lib/
     - libs/
@@ -231,23 +225,17 @@ Startapp търси в директориите php и libs, когато сер
     - misc/
     - vendor/
     - vendors/
-
 {% endsection %}
 
 
 {% section id="make-code-changes" title="Как да правим промени по кода?" %}
 
-Файлът, който трябва да промените е `index.php` и се намира тук:
 
-    $ cd /myphpapp/php/
+Нека променим файла `index.php`, който в нашият пример се намира в директория `php`.
 
-Редактирате с предпочитан от Вас текстов редактор или през командния ред например:
+    echo 'Hello Wolrd!' > php/index.php
 
-Уверете се, че се намирате в директорията на приложението Ви `/myphpapp/php/`, трябва да изпълните следния код:
-
-    echo 'Hello Wolrd!' > index.php
-
-За проверка дали успешно е променен `index.php`, изпълнете следната команда:
+За проверка дали успешно е променен `index.php`, изпълни следната команда:
 
     git status
 
@@ -258,11 +246,11 @@ Startapp търси в директориите php и libs, когато сер
     #   (use "git add <file>..." to update what will be committed)
     #   (use "git checkout -- <file>..." to discard changes in working directory)
     #
-    # modified:   index.php
+    # modified:   php/index.php
     #
     no changes added to commit (use "git add" and/or "git commit -a")
 
-Браво! Трудната част мина успешно :) Сега остана само да запишете промените в `Git` и да ги качите на сървъра:
+Браво! Трудната част мина успешно :) Сега остава да запишем промените в `Git` и да ги качим на сървъра:
 
     git commit -am "Change content of index.php"
 
@@ -276,11 +264,11 @@ Startapp търси в директориите php и libs, когато сер
 
 {% section id="deployment" title="Качване на сървъра" %}
 
-Качвате промените, които сте направили със следната команда:
+Качваме промените, които сме направили с:
 
     git push
 
-Резултатът от `git push` трябва да е:
+Резултатът от `git push` е:
 
     Counting objects: 7, done.
     Delta compression using up to 8 threads.
@@ -300,16 +288,16 @@ Startapp търси в директориите php и libs, когато сер
     To ssh://52debd81bfbf5aa4ca000482@myphpapp-demos.sapp.io/~/git/myphpapp.git/
        22f27f1..2463db6  master -> master
 
-Това е! Можете да отворите URL на приложението Ви и да се насладите на промените, които току що направихте :)
+Това е! Можем да отворим приложението в браузъра и да се насладим на промените :)
 
-{% note info, За любопитните! %}
-По-любитните от Вас, на които направи впечатление след като написахте `git push` се случиха няколко интересни неща:
+{% note info, За по-любопитните! %}
+Направи ли ти впечатление след `git push` се случиха няколко интересни неща:
 
 - Stopping PHP cartridge
 - Activating deployment
 - Starting PHP cartridge
 
-Това е нормалното поведение на всеки един deploy процес в Startapp. Хубавото обаче, е че това част от поведението на deployment процеса и начина по-който работи Вашето проложение може да бъде променяно! Това става благодарение на така наречените **Маркери**, за които можеш да намериш информация малко по-долу!
+Това е нормалното поведение на всеки един `deploy` процес в Startapp. Разбира се, това поведение може да бъде променяно! Това става чрез **Маркери**, за които можеш да намериш информация малко по-долу!
 {% endnote %}
 
 {% endsection %}
@@ -322,29 +310,16 @@ Startapp търси в директориите php и libs, когато сер
   <a href=""><span class="label label-danger">Не</span></a>
 </h4></div> -->
 
-{% section id="add-mysql-to-app" title="Добавяне на MySQL към PHP приложение" %}
+{% section id="add-mysql-to-app" title="Добавяне на MySQL към приложение" %}
 
     $ app cartridge add mysql-5.1 -a myphpapp
-
-{% note info, Относно аргумента '-a myphpapp' %}
-
-Което означава, че ако се намирате в `HOME` директорията ви трябва да използвате следния синтаксис:
-
-    $ app cartridge add mysql-5.1 -a <myphpapp>
-
-Ако обаче се намирате в директорията на Вашето приложение:
-
-    cd /myphpapp/
-    app cartridge add mysql-5.1
-
-{%endnote%}
 
 {% highlight sh %}
 Adding mysql-5.1 to application 'myphpapp' ... done
 
 mysql-5.1 (MySQL 5.1)
 ---------------------
-  Gears:          Located with php-5.3
+  Gears:          Located with php-5.5
   Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
   Database Name:  myphpapp
   Password:       gBq1wGX1sKAi
@@ -478,7 +453,7 @@ Adding phpmyadmin-4 to application 'myphpapp' ... done
 
 phpmyadmin-4 (phpMyAdmin 4.0)
 -----------------------------
-  Gears:          Located with php-5.3, mysql-5.1
+  Gears:          Located with php-5.5, mysql-5.1
   Connection URL: https://myphpapp-demos.sapp.io/phpmyadmin/
 
 Please make note of these MySQL credentials again:
@@ -514,7 +489,7 @@ Adding postgresql-8.4 to application 'myphpapp' ... done
 
 postgresql-8.4 (PostgreSQL 8.4)
 -------------------------------
-  Gears:          Located with php-5.3
+  Gears:          Located with php-5.5
   Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT
   Database Name:  myphpapp
   Password:       jBeeIbXSTGsw
@@ -665,7 +640,7 @@ Adding mongodb-2.2 to application 'myphpapp' ... done
 
 mongodb-2.2 (MongoDB 2.2)
 -------------------------
-  Gears:          Located with php-5.3
+  Gears:          Located with php-5.5
   Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
   Database Name:  myphpapp
   Password:       jgSb9c7sGcMi
